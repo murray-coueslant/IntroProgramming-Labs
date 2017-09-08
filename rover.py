@@ -11,4 +11,4 @@ distanceToMars = 34000000
 # Speed = Distance / Time
 photoTime = round(distanceToMars / lightSpeed, 2)
 
-print("The photo takes", photoTime, "seconds to reach earth.")
+print('The photo takes', photoTime, 'seconds to reach earth.')
