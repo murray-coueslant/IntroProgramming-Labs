@@ -14,8 +14,8 @@ while flag == 'Y':
     place = input('Enter a place: ')
 
     # output statement for the sentence
-    print("Bring your", adje, noun, "and", verb, "it at the", place)
+    print('Bring your', adje, noun, 'and', verb, 'it at the', place)
 
     # asking the user if they want to create another sentence
-    flag = input("Make another? (Y or N): ")
+    flag = input('Make another? (Y or N): ')
 
