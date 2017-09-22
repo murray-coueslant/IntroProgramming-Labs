@@ -6,7 +6,7 @@ animal = 'Lion'
 while 1:
     print('I am thinking of an animal.')
     guess = input('What do you think it is?: ')
-    if guess == animal:
+    if guess.lower() == animal.lower():
         print('Well done! You guessed right.')
         quit()
     elif guess.lower() == 'quit':
