@@ -1,7 +1,7 @@
 # a simple guessing game
 # written by Murray Coueslant 2017/09/22
 
-animal = 'Lion'
+animal = 'lion'
 
 while 1:
     print('I am thinking of an animal.')
