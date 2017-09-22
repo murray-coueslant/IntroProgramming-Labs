@@ -9,5 +9,8 @@ while 1:
     if guess == animal:
         print('Well done! You guessed right.')
         quit()
+    elif guess.lower() == 'quit':
+        print('Thanks for playing!')
+        quit()
     else:
         print("Sorry, that isn't right, try again!")
