@@ -24,4 +24,4 @@ while 1:
         askUser(animal)
         quit()
     else:
-        print("Sorry, that isn't right, try again!")
+        print("Sorry, that isn't right. Try again!")
