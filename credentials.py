@@ -12,8 +12,8 @@ def main():
 
 def getNames():
     # get user's first and last names
-    first = input("Enter your first name: ")
-    last = input("Enter your last name: ")
+    first = input("Enter your first name: ").lower()
+    last = input("Enter your last name: ").lower()
     nameList = [first, last]
     return nameList
 
@@ -28,11 +28,23 @@ def userCreate():
 def passCreate():
     # ask user to create a new password
     passwd = input("Create a new password: ")
+    strength = checkStrength(passwd)
     # do not allow the user to create a password shorter than 8 chars
-    while len(passwd) < 8:
+    while strength is False:
         print("Fool of a Took! That password is feeble!")
         passwd = input("Create a new password: ")
+        strength = checkStrength(passwd)
     print("The force is strong in this one…")
     return passwd
+
+
+def checkStrength(password):
+    lowerPass = password.lower()
+    upperPass = password.upper()
+    if len(password) < 8 or lowerPass == password or upperPass == password:
+        return False
+    else:
+        return True
+
 
 main()
