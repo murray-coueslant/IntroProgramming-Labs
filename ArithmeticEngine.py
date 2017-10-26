@@ -32,12 +32,17 @@ def doLoop():
             printResult(result)
         elif cmd == "div":
             num1, num2 = getNums()
-            result = num1 // num2
-            printResult(result)
+            try:
+                result = num1 // num2
+                printResult(result)
+            except:
+                print('Unable to divide by zero!')
+                result = 'Undefined'
         elif cmd == "quit":
             break
         else:
             print("\'" + cmd + "\' is not a command.")
+
 
 def printResult(result):
     print("The result is " + str(result) + ".\n")
