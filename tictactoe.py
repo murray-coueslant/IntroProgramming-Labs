@@ -71,10 +71,42 @@ def hasBlanks(board):
                 return True  # if no square is blank, return False
     return False
 
-def checkVictory():
-    checkVictoryH()
-    checkVictoryV()
-    checkVictoryD()
+def checkVictory(board):
+    checkVictoryH(board)
+    # checkVictoryV(board)
+    # checkVictoryD(board)
+
+
+def checkVictoryH(board):
+    for row in board:
+        p1_count = 0
+        p2_count = 0
+        for val in row:
+            if val == 0:
+                pass
+            elif val == 1:
+                p1_count += 1
+            elif val == 2:
+                p2_count += 1
+            else:
+                pass
+        if p1_count == 3:
+            print('Player one wins, congratulations!')
+            quit()
+        elif p2_count == 3:
+            print('Player two wins, congratulations!')
+            quit()
+        else:
+            pass
+
+
+def checkVictoryV(board):
+    for col in board:
+        p1_count = 0
+        p2_count = 0
+        for val in col:
+            pass
+
 
 def main():
     board = [[0, 0, 0],
@@ -82,10 +114,11 @@ def main():
              [0, 0, 0]]
     player = 1
     while hasBlanks(board):
-        checkVictory()
+        checkVictory(board)
         row, col = getPlayerMove()
         markBoard(board, row, col, player)
         player = player % 2 + 1  # switch player for next turn
         printBoard(board)
+
 
 main()
