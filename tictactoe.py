@@ -71,10 +71,11 @@ def hasBlanks(board):
                 return True  # if no square is blank, return False
     return False
 
+
 def checkVictory(board):
     checkVictoryH(board)
-    # checkVictoryV(board)
-    # checkVictoryD(board)
+    checkVictoryV(board)
+    checkVictoryD(board)
 
 
 def checkVictoryH(board):
@@ -101,10 +102,46 @@ def checkVictoryH(board):
 
 
 def checkVictoryV(board):
-    for col in board:
+    for col in range(0, len(board[0])):
         p1_count = 0
         p2_count = 0
-        for val in col:
+        for row in range(0, len(board[0])):
+            if board[row][col] == 0:
+                pass
+            elif board[row][col] == 1:
+                p1_count += 1
+            elif board[row][col] == 2:
+                p2_count += 1
+            else:
+                pass
+        if p1_count == 3:
+            print('Player one wins, congratulations!')
+            quit()
+        elif p2_count == 3:
+            print('Player two wins, congratulations!')
+            quit()
+        else:
+            pass
+
+
+def checkVictoryD(board):
+    if board[0][0] == board [1][1] == board[2][2]:
+        if board[0][0] == 1:
+            print('Player one wins, congratulations!')
+            quit()
+        elif board[0][0] == 2:
+            print('Player two wins, congratulations!')
+            quit()
+        else:
+            pass
+    if board[0][2] == board [1][1] == board[2][0]:
+        if board[0][2] == 1:
+            print('Player one wins, congratulations!')
+            quit()
+        elif board[0][2] == 2:
+            print('Player two wins, congratulations!')
+            quit()
+        else:
             pass
 
 
