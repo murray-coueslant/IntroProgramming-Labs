@@ -73,9 +73,15 @@ def hasBlanks(board):
 
 
 def checkVictory(board):
-    checkVictoryH(board)
-    checkVictoryV(board)
-    checkVictoryD(board)
+    v1 = checkVictoryH(board)
+    v2 = checkVictoryV(board)
+    v3 = checkVictoryD(board)
+    victory = 0
+    if v1 == 1 or v2 == 1 or v3 == 1:
+        victory = 1
+    elif v1 == 2 or v2 == 2 or v3 == 2:
+        victory = 2
+    return victory
 
 
 def checkVictoryH(board):
@@ -93,12 +99,13 @@ def checkVictoryH(board):
                 pass
         if p1_count == 3:
             print('Player one wins, congratulations!')
-            quit()
+            return 1
         elif p2_count == 3:
             print('Player two wins, congratulations!')
-            quit()
+            return 2
         else:
             pass
+    return 0
 
 
 def checkVictoryV(board):
@@ -116,33 +123,35 @@ def checkVictoryV(board):
                 pass
         if p1_count == 3:
             print('Player one wins, congratulations!')
-            quit()
+            return 1
         elif p2_count == 3:
             print('Player two wins, congratulations!')
-            quit()
+            return 2
         else:
             pass
+    return 0
 
 
 def checkVictoryD(board):
     if board[0][0] == board [1][1] == board[2][2]:
         if board[0][0] == 1:
             print('Player one wins, congratulations!')
-            quit()
+            return 1
         elif board[0][0] == 2:
             print('Player two wins, congratulations!')
-            quit()
+            return 2
         else:
             pass
     if board[0][2] == board [1][1] == board[2][0]:
         if board[0][2] == 1:
             print('Player one wins, congratulations!')
-            quit()
+            return 1
         elif board[0][2] == 2:
             print('Player two wins, congratulations!')
-            quit()
+            return 2
         else:
             pass
+    return 0
 
 
 def main():
@@ -151,11 +160,14 @@ def main():
              [0, 0, 0]]
     player = 1
     while hasBlanks(board):
-        checkVictory(board)
         row, col = getPlayerMove()
         markBoard(board, row, col, player)
-        player = player % 2 + 1  # switch player for next turn
         printBoard(board)
+        victory = checkVictory(board)
+        if victory == 1 or victory == 2:
+            quit()
+        player = player % 2 + 1  # switch player for next turn
+
 
 
 main()
