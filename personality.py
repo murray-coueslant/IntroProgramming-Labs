@@ -1,4 +1,4 @@
-import random
+import random      # emotion  reward      punish     threaten joke
 personalityTable = [["anger", "surprise", "sadness", "anger", "anger"],
                     ["disgust", "anger", "anger", "anger", "anger"],
                     ["fear", "disgust", "disgust", "sadness", "disgust"],
@@ -6,7 +6,10 @@ personalityTable = [["anger", "surprise", "sadness", "anger", "anger"],
                     ["sadness", "happiness", "fear", "anger", "happiness"],
                     ["surprise", "happiness", "anger", "disgust", "happiness"]]
 
-
+# get the interaction from the user and return an integer corresponding to the column in the table above
+#     params: none
+#     input: user interaction
+#     returns: corresponding integer
 def getInteraction():
     interaction = input('Enter the interaction you would like to have with the personality: ').lower()
     if interaction == 'reward':
@@ -21,12 +24,21 @@ def getInteraction():
         return 0
 
 
+# search the table for the current emotion and return the emotion following the user interaction
+#     params: current emotion, user interaction
+#     input: none
+#     returns: new emotion
 def lookupEmotion(currentEmotion, userInteraction):
     for row in personalityTable:
         if row[0] == currentEmotion:
             return row[userInteraction]
 
 
+# display the current emotion of the personality using print
+#     params: current emotion
+#     input: none
+#     returns: none
+#     output: message corresponding to current emotion
 def displayEmotion(currentEmotion):
     if currentEmotion == 'anger':
         print('You\'re making me very angry!')
