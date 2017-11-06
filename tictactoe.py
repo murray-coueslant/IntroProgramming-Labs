@@ -169,5 +169,4 @@ def main():
         player = player % 2 + 1  # switch player for next turn
 
 
-
 main()

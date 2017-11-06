@@ -55,7 +55,7 @@ def displayEmotion(currentEmotion):
 
 
 print("Welcome to the personality, enjoy interacting with it through four commands. Threaten, punish, joke or reward.")
-newEmotion = personalityTable[random.randint(0,5)][0]
+newEmotion = personalityTable[random.randint(0, 5)][0]
 currentEmotion = newEmotion
 while 1:
     displayEmotion(currentEmotion)
