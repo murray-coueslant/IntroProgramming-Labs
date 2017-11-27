@@ -1,8 +1,3 @@
-# CMPT 120 Intro to Programming
-# Lab #6 – Lists and Error Handling
-# Author: Your Name Here
-# Created: YYYY-MM-DD
-
 symbol = [" ", "x", "o"]
 
 
