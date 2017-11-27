@@ -1,3 +1,5 @@
+from graphics import *
+
 class Product:
     def __init__(self, name, price, quantity):
         self.name = name
@@ -33,6 +35,8 @@ def printStock():
             print()
 
 def main():
+    app = GraphWin("Robot Shop", 400, 100)
+    app.setCoords(0, 0, 5, 10)
     cash = float(input("How much money do you have? $"))
     while cash > 0:
         printStock()
