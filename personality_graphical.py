@@ -64,14 +64,15 @@ app.setCoords(0, 0, 10, 10)
 
 Text(Point(5,9), "Welcome to the personality, interact with it through four commands.").draw(app)
 Text(Point(5,8), "Threaten, punish, joke or reward.").draw(app)
-Text(Point(4,7), "I am currently feeling " + currentEmotion).draw(app)
-Text(Point(4,5), displayEmotion(currentEmotion)).draw(app)
+output1 = Text(Point(4,7), "I am currently feeling " + currentEmotion).draw(app)
+output2 = Text(Point(4,5), displayEmotion(currentEmotion)).draw(app)
 Text(Point(4,3), "What would you like to do?: ").draw(app)
 
 inputBox = Entry(Point(8,3), 10)
 inputBox.draw(app)
 while 1:
-    print(displayEmotion(currentEmotion))
+    output1.setText("I am currently feeling " + currentEmotion)
+    output2.setText(displayEmotion(currentEmotion))
     userInteraction = getInteraction(app, inputBox)
     while userInteraction == 0:
         print("Incorrect interaction, enter another.")
