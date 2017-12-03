@@ -43,33 +43,34 @@ def lookupEmotion(currentEmotion, userInteraction):
 #     output: message corresponding to current emotion
 def displayEmotion(currentEmotion):
     if currentEmotion == 'anger':
-        print('You\'re making me very angry!')
+        return 'You\'re making me very angry!'
     elif currentEmotion == 'disgust':
-        print('You\'re a horrid person!')
+        return 'You\'re a horrid person!'
     elif currentEmotion == 'fear':
-        print('You\'re scaring me!')
+        return 'You\'re scaring me!'
     elif currentEmotion == 'happiness':
-        print('I\'ve got a big smile on my face!')
+        return 'I\'ve got a big smile on my face!'
     elif currentEmotion == 'sadness':
-        print('You should wipe the tears from my eyes.')
+        return 'You should wipe the tears from my eyes.'
     else:
-        print('What a surprise!')
+        return 'What a surprise!'
 
 
-print("Welcome to the personality, enjoy interacting with it through four commands. Threaten, punish, joke or reward.")
 newEmotion = personalityTable[random.randint(0, 5)][0]
 currentEmotion = newEmotion
 app = GraphWin("Personality", 400, 200)
 app.setCoords(0, 0, 10, 10)
 
-Text(Point(5,7), "Welcome to the interactive personality!").draw(app)
-Text(Point(4,3), "I am currently feeling " + currentEmotion).draw(app)
-Text(Point(4,1), "What would you like to do?: ").draw(app)
+Text(Point(5,9), "Welcome to the personality, interact with it through four commands.").draw(app)
+Text(Point(5,8), "Threaten, punish, joke or reward.").draw(app)
+Text(Point(4,7), "I am currently feeling " + currentEmotion).draw(app)
+Text(Point(4,5), displayEmotion(currentEmotion)).draw(app)
+Text(Point(4,3), "What would you like to do?: ").draw(app)
 
-inputBox = Entry(Point(8,1), 10)
+inputBox = Entry(Point(8,3), 10)
 inputBox.draw(app)
 while 1:
-    displayEmotion(currentEmotion)
+    print(displayEmotion(currentEmotion))
     userInteraction = getInteraction()
     while userInteraction == 0:
         print("Incorrect interaction, enter another.")
