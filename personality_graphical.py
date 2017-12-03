@@ -12,8 +12,9 @@ personalityTable = [["anger", "surprise", "sadness", "anger", "anger"],
 #     params: none
 #     input: user interaction
 #     returns: corresponding integer
-def getInteraction():
-    interaction = input('Enter the interaction you would like to have with the personality: ').lower()
+def getInteraction(app, inputBox):
+    while app.getKey() != "Return": pass
+    interaction = inputBox.getText()
     if interaction == 'reward':
         return 1
     elif interaction == 'punish':
@@ -71,7 +72,7 @@ inputBox = Entry(Point(8,3), 10)
 inputBox.draw(app)
 while 1:
     print(displayEmotion(currentEmotion))
-    userInteraction = getInteraction()
+    userInteraction = getInteraction(app, inputBox)
     while userInteraction == 0:
         print("Incorrect interaction, enter another.")
         userInteraction = getInteraction()
